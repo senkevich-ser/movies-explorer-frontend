@@ -3,14 +3,14 @@
   background-color: #f3c1f8;
 }
 
-.promo__block {
+.promo__module {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   transition: 0.7s ease-in-out;
 }
 
-.promo__container {
+.promo__tank {
   width: 100%;
   padding: 50px 70px 60px 70px;
 }
@@ -29,7 +29,7 @@
 .promo__image {
   width: 722px;
   height: 244px;
-  background-image: url(../../images/promoImage.svg);
+  background-image: url(../../../images/promoImage.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
@@ -39,7 +39,7 @@
 }
 
 @media screen and (max-width: 770px) {
-  .promo__container {
+  .promo__tank {
     padding: 300px 44px 70px 44px;
   }
 
@@ -56,7 +56,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .promo__container {
+  .promo__tank {
     padding: 183px 0px 40px 0px;
   }
 

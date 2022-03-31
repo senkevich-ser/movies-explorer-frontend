@@ -1,7 +1,5 @@
 import React from 'react';
-import Header from '../Header/Header';
-import Promo from '../Promo/Promo';
-import Footer from '../Footer/Footer';
+import Main from '../Main/Main';
 
 
 
@@ -10,9 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Promo />
-      <Footer />
+      <Main />
     </div>
   );
 }

@@ -1,0 +1,58 @@
+.nav-tab {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-tab__btn {
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-tab__btn + .nav-tab__btn {
+  margin-left: 30px;
+}
+
+.nav-tab__btn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.nav-tab__btn_login {
+  color: #ffffff;
+  background-color: #000000;
+  border-radius: 3px;
+  line-height: 32px;
+  width: 76px;
+  height: 32px;
+}
+
+.nav-tab__btn_register {
+  color: #000000;
+}
+
+@media screen and (max-width: 400px) {
+  .nav-tab__btn {
+    font-size: 10px;
+  }
+
+  .nav-tab__btn + .nav-tab__btn {
+    margin-left: 14px;
+  }
+
+  .nav-tab__btn_login {
+    width: 54px;
+    line-height: 26px;
+    height: 26px;
+  }
+}
