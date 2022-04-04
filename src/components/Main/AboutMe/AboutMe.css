@@ -1,0 +1,170 @@
+.AboutMe {
+  box-sizing: border-box;
+  padding: 110px 70px 90px 70px;
+  margin: 0;
+}
+
+.student {
+  display: flex;
+  flex-flow: row wrap-reverse;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 66px 0px 100px 0px;
+  margin: 0;
+}
+
+.student__info {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 2 2 50%;
+
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.student__subtitle {
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  mix-blend-mode: normal;
+
+  padding: 0;
+  padding-top: 18px;
+  margin: 0;
+}
+
+.student__text {
+  color: #000;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 22px;
+  mix-blend-mode: normal;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 600px;
+  padding: 0;
+  padding-top: 26px;
+  margin: 0;
+}
+
+.student__list {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row nowrap;
+
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  margin-top: auto;
+}
+
+.student__item {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.student__item + .student__item {
+  margin-left: 20px;
+}
+
+.student__link {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  transition: .7s ease-in-out;
+}
+
+.student__link:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+
+.student__photo {
+  width: 270px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex: 0 0 270px;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 770px) {
+  .AboutMe {
+    padding: 90px 50px;
+  }
+
+  .student {
+    padding: 66px 0px 90px 0px;
+  }
+
+  .student__subtitle {
+    font-size: 12px;
+    line-height: 18px;
+    padding-top: 16px;
+  }
+
+  .student__text {
+    font-size: 12px;
+    line-height: 18px;
+    padding-top: 20px;
+    max-width: 364px;
+  }
+
+  .student__photo {
+    width: 255px;
+    flex-basis: 255px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .student__info {
+    flex-basis: 100%;
+    margin-top: 40px;
+  }
+
+  .student__text {
+    max-width: 100%;
+  }
+
+  .student__list {
+    margin-top: 40px;
+  }
+
+  .student__photo {
+    width: 292px;
+    flex-basis: 292px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .AboutMe {
+    padding: 70px 14px;
+  }
+
+  .student {
+    padding: 60px 0px 69px 0px;
+  }
+
+  .student__subtitle {
+    font-size: 11px;
+    line-height: 16px;
+    padding-top: 20px;
+  }
+
+  .student__text {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .student__item + .student__item {
+    margin-left: 26px;
+  }
+}
