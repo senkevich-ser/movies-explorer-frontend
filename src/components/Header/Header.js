@@ -1,13 +1,12 @@
 import React from 'react';
-import Logo from '../Logo/Logo';
-import NavTab from '../Main/NavTab/NavTab';
 import './Header.css';
+import Logo from '../Logo/Logo';
 
-function Header() {
+function Header(props) {
   return (
-    <header className="Header">
+    <header className="header">
       <Logo />
-      <NavTab />
+      {props.children}
     </header >
   )
 };

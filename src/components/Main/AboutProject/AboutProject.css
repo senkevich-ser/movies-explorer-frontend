@@ -1,4 +1,4 @@
-.AboutProject {
+.aboutProject {
   box-sizing: border-box;
   padding: 110px 70px;
   margin: 0;
@@ -98,7 +98,7 @@
 }
 
 @media screen and (max-width: 770px) {
-  .AboutProject {
+  .aboutProject {
     padding: 90px 50px;
   }
 
@@ -134,7 +134,7 @@
 }
 
 @media screen and (max-width: 400px) {
-  .AboutProject {
+  .aboutProject {
     padding: 70px 18px;
   }
 

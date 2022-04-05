@@ -1,5 +1,5 @@
-.Header {
-  background-color: rgba(243, 193, 248, 1);
+.header {
+  background-color: transparent;
 
   display: flex;
   flex-flow: row nowrap;
@@ -13,13 +13,13 @@
 }
 
 @media screen and (max-width: 770px) {
-  .Header {
+  .header {
     padding: 18px 30px;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .Header {
+  .header {
     padding: 18px 14px;
   }
 }

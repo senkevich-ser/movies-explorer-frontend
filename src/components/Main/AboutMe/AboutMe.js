@@ -7,7 +7,7 @@ import '../AboutProject/AboutProject.css';
 import '../Techs/Techs.css';
 
 const AboutMe = () => (
-  <section className="AboutMe">
+  <section className="aboutMe">
 
     <h3 className='aboutProject__title'>Студент</h3>
 

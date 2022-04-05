@@ -3,7 +3,7 @@ import React from 'react';
 import './Portfolio.css';
 
 const Portfolio = () => (
-  <section className="Portfolio portfolio__container">
+  <section className="portfolio portfolio__container">
     <h4 className="portfolio__container portfolio__title">Портфолио</h4>
 
     <ul className="portfolio__container projects__table">

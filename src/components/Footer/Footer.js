@@ -2,7 +2,7 @@ import React from 'react';
 import './Footer.css';
 
 const Footer = () => (
-  <footer className="Footer">
+  <footer className="footer">
 
     <p className="footer__text footer__info">
       Учебный проект Яндекс.Практикум х BeatFilm.
