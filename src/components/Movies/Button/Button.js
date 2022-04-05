@@ -1,8 +1,14 @@
 import React from 'react';
 import './Button.css';
 
-const Button = () => (
-  <button className='button movies__btn_type_more' type='button'>Еще</button>
+const Button = ({ userClass, buttonType, children, ...rest }) => (
+  <button
+    className={`button ${userClass || ''}`}
+    type={buttonType || 'button'}
+    {...rest}
+  >
+    {children || ''}
+  </button>
 );
 
 export default Button;

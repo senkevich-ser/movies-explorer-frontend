@@ -102,7 +102,7 @@
 }
 
 .search__line {
-  background-color: #e8e8e8;
+  background-color: rgba(203, 203, 203, 1);
   width: 1px;
   height: 40px;
   margin-right: 29px;
