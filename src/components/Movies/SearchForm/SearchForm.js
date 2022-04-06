@@ -1,5 +1,6 @@
 import React from 'react';
 import RoundSwitch from '../../RoundSwitch/RoundSwitch';
+import Button from '../../Button/Button';
 import './SearchForm.css';
 
 function SearchForm() {
@@ -16,6 +17,7 @@ function SearchForm() {
             className="search__input search__box"
             placeholder="Фильм"
           />
+          <Button type="submit" userClass="search__button" />
         </fieldset>
         <fieldset className="search__switch-box search__box">
           <div className="search__line search__box" />
