@@ -2,7 +2,7 @@ import React from 'react';
 import './Input.css';
 
 const Input = ({
-  type, isError, errorText, errorId, children, ...rest
+  userClass, type, isError, errorText, errorId, children, ...rest
 }) => (
   <div className="input input__box">
     <label className="input__label input__box">
@@ -10,7 +10,7 @@ const Input = ({
     </label>
 
     <input type={type}
-      className="input__item input__box"
+      className={`input__item input__box ${userClass || ''}`}
       {...rest}
     />
 

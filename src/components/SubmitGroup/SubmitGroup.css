@@ -15,7 +15,7 @@
 }
 
 .submit-group__error {
-  color: #EE3465;
+  color: #FF4062;
   font-size: 12px;
   font-weight: 500;
   line-height: 12px;
@@ -38,7 +38,7 @@
 }
 
 .submit-group__link {
-  color: #FF6838;
+  color: #000000;
   text-decoration: none;
 }
 

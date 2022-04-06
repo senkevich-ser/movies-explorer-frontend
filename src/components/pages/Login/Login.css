@@ -21,6 +21,10 @@
   margin-top: 70px;
 }
 
+.input__item_type_password{
+  color: #FF4062;
+}
+
 @media screen and (max-width: 400px) {
   .login {
     max-width: 260px;

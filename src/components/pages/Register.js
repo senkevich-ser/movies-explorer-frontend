@@ -30,6 +30,7 @@ function Register() {
 
         <Input
           type="password"
+          userClass={`input__item_type_password`}
           id="password" name="password"
           maxLength="20" minLength="8"
           placeholder="Пароль" required
