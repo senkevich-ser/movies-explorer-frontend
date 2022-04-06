@@ -8,7 +8,7 @@ function Header(props) {
       <Logo />
       {props.children}
     </header >
-  )
-};
+  );
+}
 
 export default Header;

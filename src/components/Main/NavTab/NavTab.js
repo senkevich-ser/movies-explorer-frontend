@@ -19,7 +19,7 @@ function NavTab() {
         Войти
       </Link>
     </nav >
-  )
-};
+  );
+}
 
 export default NavTab;

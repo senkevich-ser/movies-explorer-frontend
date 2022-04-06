@@ -1,7 +1,9 @@
 import React from 'react';
 import './Button.css';
 
-const Button = ({ userClass, buttonType, children, ...rest }) => (
+const Button = ({
+  userClass, buttonType, children, ...rest
+}) => (
   <button
     className={`button ${userClass || ''}`}
     type={buttonType || 'button'}

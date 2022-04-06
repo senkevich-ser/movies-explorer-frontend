@@ -4,9 +4,7 @@ import Button from '../Button/Button';
 import './Navigation.css';
 
 function Navigation() {
-
   return (
-
     <nav className="menu">
       <div className="menu">
         <NavLink to="/movies"
