@@ -1,6 +1,7 @@
 .round-btn {
   display: block;
-  position: relative;
+  position: absolute;
+  right: 18px;
 
   box-sizing: border-box;
   padding: 0;

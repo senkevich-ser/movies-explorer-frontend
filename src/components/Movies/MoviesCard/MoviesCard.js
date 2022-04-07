@@ -20,11 +20,16 @@ function MoviesCard({ movie, children }) {
       </div>
 
       <ul className="card__info">
-        <li className="card__name">{movie.nameRU}</li>
-        <li>
+        <div className="card__name">
+        <li className="card__name_title">{movie.nameRU}</li>
+
           {children}
-        </li>
-        <li className="card__duration">{getMovieDuration(movie.duration)}</li>
+
+        </div>
+        <div className='card__duration'>
+        <div className="card__line"></div>
+        <li className="card__duration_time">{getMovieDuration(movie.duration)}</li>
+        </div>
       </ul>
     </li>
   );
