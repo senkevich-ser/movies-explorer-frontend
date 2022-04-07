@@ -12,7 +12,8 @@ function Movies() {
     <section className="movies">
       <Header>{<Navigation />}</Header>
       <SearchForm />
-      <MoviesCardList />
+      <MoviesCardList
+      savedFilms={false}/>
       <Button userClass="movies__btn_type_more ">Ещё</Button>
       <Footer />
     </section>

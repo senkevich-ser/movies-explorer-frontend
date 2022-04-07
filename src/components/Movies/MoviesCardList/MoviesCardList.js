@@ -2,18 +2,30 @@ import React from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import RoundCheckBox from '../RoundCheckBox/RoundCheckBox';
 import initialArr from '../../../initialData';
+import Button from '../../Button/Button';
 import './MoviesCardList.css';
 
-function MoviesCardList() {
+function DeleteButton() {
+  return (
+    <Button userClass="saved-movies__btn_delete"/>
+  );
+}
+
+function MoviesCardList(props) {
   const getMoviesList = (cardArr) => {
     if (cardArr.length > 0) {
       return initialArr.map((moviesCard) => (
         <MoviesCard
-          key={moviesCard.movieId} movie={moviesCard}
+          key={moviesCard.id} movie={moviesCard}
         >
-          <RoundCheckBox
-            movieId={moviesCard.movieId}
-          />
+         { props.savedFilms
+           ? (<DeleteButton
+              movie={moviesCard}
+            />)
+           : (<RoundCheckBox
+              movieId={moviesCard.movieId}
+            />)
+          }
         </MoviesCard>
       ));
     }
@@ -25,7 +37,7 @@ function MoviesCardList() {
   };
 
   return (
-    <ul className="list gradual-change">
+    <ul className="list">
       {getMoviesList(initialArr)}
     </ul>
   );
