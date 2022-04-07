@@ -1,7 +1,7 @@
 import React from 'react';
-import './RoundSwitch.css';
+import './FilterCheckbox.css';
 
-const RoundSwitch = (props) => (
+const FilterCheckbox = (props) => (
   <label className="switch">
     <input
       type="checkbox"
@@ -11,8 +11,8 @@ const RoundSwitch = (props) => (
       disabled={props.isDisabled}
     />
 
-    <span className="switch__slider"/>
+    <span className="switch__slider" />
   </label>
 );
 
-export default RoundSwitch;
+export default FilterCheckbox;

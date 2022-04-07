@@ -1,5 +1,5 @@
 import React from 'react';
-import RoundSwitch from '../../RoundSwitch/RoundSwitch';
+import FilterCheckbox from '../../FilterCheckbox/FilterCheckbox';
 import Button from '../../Button/Button';
 import './SearchForm.css';
 
@@ -21,7 +21,7 @@ function SearchForm() {
         </fieldset>
         <fieldset className="search__switch-box search__box">
           <div className="search__line search__box" />
-          <RoundSwitch />
+          <FilterCheckbox />
           <p className="search__switch-name search__box">
             Короткометражки
           </p>
