@@ -7,10 +7,11 @@ const SubmitGroup = (props) => (
   <fieldset className="submit-group">
     <p className="submit-group__error submit-group__box">
     </p>
-
-    <SubmitButton >
-      {props.submitName}
-    </SubmitButton>
+    <Link to='/movies'>
+      <SubmitButton >
+        {props.submitName}
+      </SubmitButton>
+    </Link>
 
     <nav className="submit-group__row submit-group__box">
       <span className="submit-group__text submit-group__box submit-group__font">

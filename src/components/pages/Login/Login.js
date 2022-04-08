@@ -16,7 +16,7 @@ function Login() {
         <Input
           type="email"
           id="email" name="email"
-          placeholder="E-mail" required
+          placeholder="E-mail"
         >
           E-mail
         </Input>
@@ -26,7 +26,7 @@ function Login() {
           userClass={`input__item_type_password`}
           id="password" name="password"
           maxLength="20" minLength="8"
-          placeholder="Пароль" required
+          placeholder="Пароль"
         >
           Пароль
         </Input>
