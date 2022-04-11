@@ -1,10 +1,8 @@
 .search {
   background-color: #fff;
   border-bottom: 1px solid #e8e8e8;
-
   box-sizing: border-box;
   width: calc(100% - 140px);
-
   padding: 70px 0px 69px 0px;
   margin: 0px 70px 10px 70px;
 }
@@ -18,12 +16,10 @@
 .search__form {
   border-radius: 9px;
   overflow: hidden;
-
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-
   width: 100%;
   min-height: 72px;
 }
@@ -38,6 +34,11 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+}
+
+.search__input-box:focus-within {
+  border:3px solid rgba(0, 0, 0, 0.5);
+  border-radius: 9px;
 }
 
 .search__input_error {
@@ -57,12 +58,10 @@
   background-position: 19px 50%;
   outline: none;
   border: none;
-
   color: #000;
   font-size: 18px;
   font-weight: normal;
   line-height: 20px;
-
   height: 100%;
   padding: 25px 0px;
   padding-right: 10px;

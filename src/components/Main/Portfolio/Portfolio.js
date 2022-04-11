@@ -16,6 +16,7 @@ const Portfolio = () => (
           href="https://github.com/senkevich-ser/how-to-learn"
           target="_blank" rel="noreferrer noopener"
         >
+          ↗
         </a>
       </li>
 
@@ -28,6 +29,7 @@ const Portfolio = () => (
           href="https://github.com/senkevich-ser/russian-travel"
           target="_blank" rel="noreferrer noopener"
         >
+          ↗
         </a>
       </li>
 
@@ -40,6 +42,7 @@ const Portfolio = () => (
           href="https://github.com/senkevich-ser/mesto"
           target="_blank" rel="noreferrer noopener"
         >
+          ↗
         </a>
       </li>
     </ul>

@@ -4,8 +4,8 @@ import './Form.css';
 const Form = ({
   name, title, children, onSubmit,
 }) => (
-  <form className="form gradual-change" name={name} onSubmit={onSubmit}>
-    <h2 className="form__title gradual-change">
+  <form className="form" name={name} onSubmit={onSubmit}>
+    <h2 className="form__title">
       {title}
     </h2>
     {children}
