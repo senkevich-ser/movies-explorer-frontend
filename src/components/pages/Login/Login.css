@@ -1,0 +1,38 @@
+.login {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 396px;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.login__header {
+  align-self: flex-start;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 40px;
+  margin-top: 70px;
+}
+
+.input__item_type_password{
+  color: #FF4062;
+}
+
+@media screen and (max-width: 400px) {
+  .login {
+    max-width: 260px;
+  }
+
+  .login__header {
+    align-self: center;
+    margin-bottom: 50px;
+    margin-top: 70px;
+  }
+}

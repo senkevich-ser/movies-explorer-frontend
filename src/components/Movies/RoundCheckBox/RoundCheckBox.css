@@ -1,0 +1,47 @@
+.round-btn {
+  display: block;
+  position: absolute;
+  right: 1px;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  user-select: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.round-btn__input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+.round-btn:hover {
+  box-shadow: 0px 4px 4px darkgray;
+}
+
+.round-btn__checkmark:after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #F9F9F9;
+  background-image: url('../../../images/invisible_like.svg');
+  background-repeat: no-repeat;
+  background-position: 51% 56%;
+  background-size: 42%;
+}
+
+.round-btn__input:checked ~ .round-btn__checkmark::after {
+  background-image: url('../../../images/red_like.svg');
+  background-repeat: no-repeat;
+  background-position: 51% 56%;
+  background-size: 42%;
+  background-color: #F9F9F9;
+}

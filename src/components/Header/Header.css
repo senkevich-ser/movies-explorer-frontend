@@ -1,0 +1,25 @@
+.header {
+  background-color: transparent;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 18px 70px;
+  margin: 0;
+}
+
+@media screen and (max-width: 770px) {
+  .header {
+    padding: 18px 30px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header {
+    padding: 18px 14px;
+  }
+}

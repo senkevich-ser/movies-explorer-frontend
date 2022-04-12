@@ -1,0 +1,27 @@
+.form {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.form__title {
+  color: #000;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  text-align: left;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 400px) {
+  .form__title {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+}

@@ -1,0 +1,98 @@
+.menu {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  width: 60%;
+}
+
+.menu__link {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 18px;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: none;
+}
+
+.menu__link:focus {
+outline: 3px solid rgba(0, 0, 0, 0.5);
+border-radius: 9px;
+}
+
+.menu__link:hover {
+  opacity: 0.5;
+}
+
+.menu__link_film + .menu__link_film {
+  margin-left: 20px;
+}
+
+.menu__link_profile {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding-left: 3px;
+  font-weight: 500;
+  line-height: 32px;
+
+  width: 100px;
+  height: 32px;
+  margin-left: auto;
+  box-shadow: 1px 3px 4px darkgray;
+}
+
+.menu__button {
+  background-image: url(../../../images/menu-icon.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  display: none;
+}
+
+.accaunt__button {
+  background-image: url(../../../images/accaunt_image.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  background-color: #F9F9F9;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.menu__button:hover {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 770px) {
+  .menu__link {
+    display: none;
+  }
+  .menu__button {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .menu__button {
+    width: 40px;
+    height: 43px;
+  }
+}
