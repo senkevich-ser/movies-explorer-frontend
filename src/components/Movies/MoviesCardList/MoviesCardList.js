@@ -1,28 +1,28 @@
 import React from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import RoundCheckBox from '../RoundCheckBox/RoundCheckBox';
-import initialArr from '../../../initialData';
+import Preloader from '../../Preloader/Preloader';
 import Button from '../../Button/Button';
 import './MoviesCardList.css';
 
 function DeleteButton() {
   return (
-    <Button userClass="saved-movies__btn_delete"/>
+    <Button userClass="saved-movies__btn_delete" />
   );
 }
 
 function MoviesCardList(props) {
   const getMoviesList = (cardArr) => {
     if (cardArr.length > 0) {
-      return initialArr.map((moviesCard) => (
+      return cardArr.map((moviesCard) => (
         <MoviesCard
           key={moviesCard.id} movie={moviesCard}
         >
-         { props.savedFilms
-           ? (<DeleteButton
+          {props.savedFilms
+            ? (<DeleteButton
               movie={moviesCard}
             />)
-           : (<RoundCheckBox
+            : (<RoundCheckBox
               movieId={moviesCard.movieId}
             />)
           }
@@ -38,7 +38,7 @@ function MoviesCardList(props) {
 
   return (
     <ul className="list">
-      {getMoviesList(initialArr)}
+      {props.isLoading ? <Preloader /> : getMoviesList(props.cardList)}
     </ul>
   );
 }
