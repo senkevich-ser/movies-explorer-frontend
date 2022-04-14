@@ -5,40 +5,58 @@ import Preloader from '../../Preloader/Preloader';
 import Button from '../../Button/Button';
 import './MoviesCardList.css';
 
-function DeleteButton() {
+function DeleteButton(props) {
+
+  const handleDelete = () => {
+    props.onDelete(props.movie);
+  };
+
   return (
-    <Button userClass="saved-movies__btn_delete" />
+    <Button userClass="saved-movies__btn_delete" onClick={handleDelete} />
   );
 }
 
 function MoviesCardList(props) {
-  const getMoviesList = (cardArr) => {
-    if (cardArr.length > 0) {
-      return cardArr.map((moviesCard) => (
+
+  const handleChange = (movieId) => {
+    props.onSave(movieId);
+  };
+
+  const handleDelete = (movie) => {
+    props.onDelete(movie);
+  };
+
+  const getMoviesList = (moviesList) => {
+    if (moviesList.length > 0) {
+      return moviesList.map((moviesCard) => (
         <MoviesCard
-          key={moviesCard.id} movie={moviesCard}
+          key={moviesCard.movieId} movie={moviesCard}
+          onClick={props.onClick}
         >
-          {props.savedFilms
-            ? (<DeleteButton
+          {props.savedFilms ?
+            <DeleteButton
+              onDelete={handleDelete}
               movie={moviesCard}
-            />)
-            : (<RoundCheckBox
+            /> :
+            <RoundCheckBox
+              isChecked={moviesCard.saved}
               movieId={moviesCard.movieId}
-            />)
+              onChange={handleChange}
+            />
           }
         </MoviesCard>
       ));
     }
     return (
       <li className="list__no-result-box">
-        Что то пошло не так
+        {props.errorMessage}
       </li>
     );
   };
 
   return (
-    <ul className="list">
-      {props.isLoading ? <Preloader /> : getMoviesList(props.cardList)}
+    <ul className="list gradual-change">
+      {props.isLoading ? <Preloader /> : getMoviesList(props.moviesList)}
     </ul>
   );
 }
