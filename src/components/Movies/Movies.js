@@ -144,7 +144,7 @@ function Movies() {
 
   const handleSaveClick = async (movieId) => {
     try {
-      // Находим сохраняемый/удаляемый фильм
+      // Находим сохраняемый/удаляем фильм
       const films = foundMovies.filter(currentMovie => currentMovie.movieId === movieId);
       if (films.length !== 1) throw new Error(SAVE_FILM_ERR_TEXT);
 
@@ -156,13 +156,13 @@ function Movies() {
 
         const {
           movieId, country, director, duration, year,
-          description, image, trailer, nameRU, nameEN,
+          description, image, trailerLink, nameRU, nameEN,
           thumbnail, _id,
         } = result;
 
         const newFilm = {
           movieId, country, director, duration, year,
-          description, image, trailer, nameRU, nameEN,
+          description, image, trailerLink, nameRU, nameEN,
           thumbnail, saved: _id,
         };
 
@@ -182,13 +182,13 @@ function Movies() {
 
         const {
           movieId, country, director, duration, year,
-          description, image, trailer, nameRU, nameEN,
+          description, image, trailerLink, nameRU, nameEN,
           thumbnail,
         } = result;
 
         const newFilm = {
           movieId, country, director, duration, year,
-          description, image, trailer, nameRU, nameEN,
+          description, image, trailerLink, nameRU, nameEN,
           thumbnail, saved: 0,
         };
 
@@ -214,7 +214,7 @@ function Movies() {
   };
 
   const handleCardClick = (movie) => {
-    window.open(movie.trailer, '_blank');
+    window.open(movie.trailerLink, '_blank');
   };
 
   const handleSwitchChange = () => {

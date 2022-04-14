@@ -26,6 +26,7 @@ function SavedMovies() {
     setIsLoading(true);
     mainApi.getMovies()
       .then((data) => {
+        console.log(data);
         setMoviesList(data);
         setVisibleMovies(data);
         localStorage.setItem(STORAGE_NAME, JSON.stringify(data));
@@ -60,12 +61,13 @@ function SavedMovies() {
   }, [isSwitchOn]);
 
   const handleCardClick = (movie) => {
-    window.open(movie.trailer, '_blank');
+    window.open(movie.trailerLink, '_blank');
   };
 
   const handleDeleteClick = (movie) => {
     mainApi.deleteMovie(movie._id)
       .then((deletedMovie) => {
+        console.log(deletedMovie.message)
         const newList = moviesList.filter(item => item.movieId !== deletedMovie.movieId);
         setMoviesList(newList);
 

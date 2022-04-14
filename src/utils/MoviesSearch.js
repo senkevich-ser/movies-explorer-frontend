@@ -21,13 +21,13 @@ export const readMovies = async () => {
         year: movie.year || '2021',
         description: movie.description || '-',
         image: movie.image ? `${MOVIES_URL}${movie.image.url}` : 'https://fakeimg.pl/350x200/?text=Hello',
-        trailer: movie.trailerLink || 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        trailerLink: movie.trailerLink || 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
         nameRU: movie.nameRU || '',
         nameEN: movie.nameEN || '',
         thumbnail: movie.image ? `${MOVIES_URL}${movie.image.formats.thumbnail.url}` : 'https://fakeimg.pl/350x200/?text=Hello',
       };
     });
-
+    console.log(moviesList);
     return Promise.resolve(moviesList);
 
   } catch (err) {
@@ -75,7 +75,7 @@ export const addSavedFlag = (films, savedFilms) => {
   return films.map((film) => {
     const {
       movieId, country, director, duration,
-      year, description, image, trailer,
+      year, description, image, trailerLink,
       nameRU, nameEN, thumbnail,
     } = film;
 
@@ -88,7 +88,7 @@ export const addSavedFlag = (films, savedFilms) => {
 
     const newFilm = {
       movieId, country, director, duration,
-      year, description, image, trailer,
+      year, description, image, trailerLink,
       nameRU, nameEN, thumbnail, saved: savedId,
     };
 
