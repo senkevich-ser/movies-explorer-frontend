@@ -33,7 +33,7 @@ function Login(props) {
       </header>
 
       <Form name="form-login" title="Рады видеть!"
-        onSubmit={handleSubmit}>>
+        onSubmit={handleSubmit}>
         <Input
           type="email"
           id="email" name="email"
