@@ -26,7 +26,6 @@ function SavedMovies() {
     setIsLoading(true);
     mainApi.getMovies()
       .then((data) => {
-        console.log(data);
         setMoviesList(data);
         setVisibleMovies(data);
         localStorage.setItem(STORAGE_NAME, JSON.stringify(data));
@@ -67,13 +66,12 @@ function SavedMovies() {
   const handleDeleteClick = (movie) => {
     mainApi.deleteMovie(movie._id)
       .then((deletedMovie) => {
-        console.log(deletedMovie.message)
-        const newList = moviesList.filter(item => item.movieId !== deletedMovie.movieId);
+        const newList = moviesList.filter(item => item._id !== deletedMovie.message.split(' ')[2]);
         setMoviesList(newList);
 
-        const newVisible = visibleMovies.filter(item => item.movieId !== deletedMovie.movieId);
+        const newVisible = visibleMovies.filter(item => item._id !== deletedMovie.message.split(' ')[2]);
         setVisibleMovies(newVisible);
-        localStorage.setItem(JSON.stringify(newVisible));
+        localStorage.setItem(JSON.stringify(newVisible), STORAGE_NAME);
 
         if (newVisible.length === 0) setApiErrorMessage(NOT_FOUND_ERR_BLOCK);
         setIsSwitchDisabled(newList.length === 0);
