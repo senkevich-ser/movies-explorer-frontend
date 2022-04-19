@@ -66,10 +66,10 @@ function SavedMovies() {
   const handleDeleteClick = (movie) => {
     mainApi.deleteMovie(movie._id)
       .then((deletedMovie) => {
-        const newList = moviesList.filter(item => item._id !== deletedMovie.message.split(' ')[2]);
+        const newList = moviesList.filter(item => item._id !== deletedMovie._id);
         setMoviesList(newList);
 
-        const newVisible = visibleMovies.filter(item => item._id !== deletedMovie.message.split(' ')[2]);
+        const newVisible = visibleMovies.filter(item => item._id !== deletedMovie._id);
         setVisibleMovies(newVisible);
         localStorage.setItem(JSON.stringify(newVisible), STORAGE_NAME);
 

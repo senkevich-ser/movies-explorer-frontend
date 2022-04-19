@@ -27,7 +27,6 @@ export const readMovies = async () => {
         thumbnail: movie.image ? `${MOVIES_URL}${movie.image.formats.thumbnail.url}` : 'https://fakeimg.pl/350x200/?text=Hello',
       };
     });
-    console.log(moviesList);
     return Promise.resolve(moviesList);
 
   } catch (err) {

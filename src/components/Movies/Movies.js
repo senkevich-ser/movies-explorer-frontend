@@ -60,14 +60,20 @@ function Movies() {
   }, [width]);
 
   useEffect(() => {
+    console.log(foundMovies)
     if (foundMovies.length <= visualProps.total) {
       setVisibleCardsNumber(foundMovies.length);
       setIsMoreVisible(false);
-    } else {
+    }
+    if (visibleCardsNumber) {
+      setVisibleCardsNumber(visibleCardsNumber)
+      setIsMoreVisible(true);
+    }
+    else {
       setVisibleCardsNumber(visualProps.total)
       setIsMoreVisible(true);
     }
-  }, [foundMovies, visualProps]);
+  }, [foundMovies, visualProps, visibleCardsNumber]);
 
   useEffect(() => {
     setShowedMovies(foundMovies.slice(0, visibleCardsNumber));
@@ -179,7 +185,6 @@ function Movies() {
 
       } else {
         const result = await mainApi.deleteMovie(films[0].saved);
-
         const {
           movieId, country, director, duration, year,
           description, image, trailerLink, nameRU, nameEN,
