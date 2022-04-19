@@ -17,9 +17,9 @@
 }
 
 .submit-btn:disabled {
-  color: #000;
-  border: 1px solid #000;
-  opacity: .7;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  opacity: .5;
 }
 
 .submit-btn:disabled:hover {

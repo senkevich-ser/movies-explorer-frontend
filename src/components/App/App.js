@@ -141,11 +141,11 @@ function App() {
           <ProtectedRoute path="/saved-movies"
             loggedIn={loggedIn}
             component={SavedMovies}
-            onLogout={handleLogout}
           />
           <ProtectedRoute path="/profile"
             loggedIn={loggedIn}
             component={Profile}
+            onLogout={handleLogout}
           />
           <Route path="/signup">
             <Register

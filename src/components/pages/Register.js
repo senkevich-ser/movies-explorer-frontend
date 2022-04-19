@@ -35,6 +35,7 @@ function Register(props) {
       <Form name="form-register" title="Добро пожаловать!"
         onSubmit={handleSubmit}>
         <Input type="text"
+          autoComplete="off"
           id="name" name="name"
           maxLength="30" minLength="2"
           placeholder="Имя" required
@@ -48,6 +49,7 @@ function Register(props) {
         </Input>
 
         <Input type="email"
+          autoComplete="off"
           id="email" name="email"
           placeholder="E-mail" required
           pattern="^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$"
@@ -60,6 +62,7 @@ function Register(props) {
         </Input>
 
         <Input
+          autoComplete="off"
           type="password"
           id="password" name="password"
           maxLength="20" minLength="8"

@@ -15,15 +15,15 @@ export const readMovies = async () => {
     const moviesList = movies.map(movie => {
       return {
         movieId: movie.id,
-        country: movie.country || '-',
-        director: movie.director || '-',
+        country: movie.country || 'нет данных',
+        director: movie.director || 'нет данных',
         duration: movie.duration || 0,
         year: movie.year || '2021',
-        description: movie.description || '-',
+        description: movie.description || 'нет данных',
         image: movie.image ? `${MOVIES_URL}${movie.image.url}` : 'https://fakeimg.pl/350x200/?text=Hello',
         trailerLink: movie.trailerLink || 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-        nameRU: movie.nameRU || '',
-        nameEN: movie.nameEN || '',
+        nameRU: movie.nameRU || 'нет данных',
+        nameEN: movie.nameEN || 'no data',
         thumbnail: movie.image ? `${MOVIES_URL}${movie.image.formats.thumbnail.url}` : 'https://fakeimg.pl/350x200/?text=Hello',
       };
     });

@@ -60,7 +60,6 @@ function Movies() {
   }, [width]);
 
   useEffect(() => {
-    console.log(foundMovies)
     if (foundMovies.length <= visualProps.total) {
       setVisibleCardsNumber(foundMovies.length);
       setIsMoreVisible(false);

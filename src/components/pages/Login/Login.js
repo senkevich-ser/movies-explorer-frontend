@@ -24,6 +24,7 @@ function Login(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('123')
     props.onLogin(values.email, values.password, emptyForm);
   }
   return (
@@ -35,6 +36,7 @@ function Login(props) {
       <Form name="form-login" title="Рады видеть!"
         onSubmit={handleSubmit}>
         <Input
+          autoComplete="off"
           type="email"
           id="email" name="email"
           placeholder="E-mail" required
@@ -48,6 +50,7 @@ function Login(props) {
         </Input>
 
         <Input
+          autoComplete="off"
           type="password"
           id="password" name="password"
           maxLength="20" minLength="8"
