@@ -1,4 +1,4 @@
-import { BASE_URL } from './Auth';
+import { BASE_URL } from './auth';
 
 class MainApi {
   constructor({ baseUrl, headers }) {
