@@ -91,7 +91,7 @@ function App() {
     auth.register(userEmail, userPassword, userName)
       .then((res) => {
         resetRegisterForm();
-        // history.push('/signin');
+        history.push('/signin');
         //------------------------------------------------------
         auth.authorize(userEmail, userPassword)
           .then((data) => {

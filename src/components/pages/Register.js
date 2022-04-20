@@ -12,7 +12,7 @@ function Register(props) {
 
   useEffect(() => {
     props.resetMessage();
-  }, [values, props]);
+  }, [values]);
 
   useEffect(() => {
     setErrorMessage(props.errorMessage);

@@ -12,7 +12,7 @@ function Login(props) {
 
   useEffect(() => {
     props.resetMessage();
-  }, [values, props]);
+  }, [values]);
 
   useEffect(() => {
     setErrorMessage(props.errorMessage);
@@ -24,7 +24,6 @@ function Login(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('123')
     props.onLogin(values.email, values.password, emptyForm);
   }
   return (
