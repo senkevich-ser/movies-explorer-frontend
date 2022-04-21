@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import * as auth from '../../utils/auth';
+import * as auth from '../../utils/Auth';
 import ProtectedRoute from '../../components/ProtectedRoute';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
