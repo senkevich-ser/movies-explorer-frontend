@@ -21,7 +21,7 @@ function Profile(props) {
 
   useEffect(() => {
     setServerErrorMessage('');
-  }, [values]);
+  }, []);
 
   useEffect(() => {
     const condition1 =
@@ -54,7 +54,7 @@ function Profile(props) {
         currentUser.name = data.name;
         currentUser.email = data.email;
         resetForm({ name: currentUser.name, email: currentUser.email });
-        setTimeout(() => setServerErrorMessage(''), 1000);
+        setTimeout(() => setServerErrorMessage(''), 2000);
       })
       .catch((err) => {
         switch (err) {

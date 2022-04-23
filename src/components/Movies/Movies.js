@@ -64,7 +64,7 @@ function Movies() {
       setVisibleCardsNumber(foundMovies.length);
       setIsMoreVisible(false);
     }
-    if (visibleCardsNumber) {
+    else if (visibleCardsNumber) {
       setVisibleCardsNumber(visibleCardsNumber)
       setIsMoreVisible(true);
     }
