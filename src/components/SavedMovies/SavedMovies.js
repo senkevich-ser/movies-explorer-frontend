@@ -23,6 +23,12 @@ function SavedMovies() {
   const STORAGE_NAME = 'visibleMovies';
 
   useEffect(() => {
+    if (!localStorage.getItem('isShortSavedMovies')) {
+      localStorage.setItem('isShortSavedMovies', JSON.stringify({ checkbox: false }));
+    }
+    if (JSON.parse(localStorage.getItem('isShortSavedMovies')).checkbox) {
+      setTimeout(handleSwitchChange, 200)
+    }
     setIsLoading(true);
     mainApi.getMovies()
       .then((data) => {
@@ -51,13 +57,16 @@ function SavedMovies() {
     if (isSwitchOn) {
       const foundFilter = visible.filter(item => item.duration <= SHORT_FILM_DURATION);
       setVisibleMovies(foundFilter);
+      localStorage.setItem('isShortSavedMovies', JSON.stringify({ checkbox: true }));
       if (foundFilter.length === 0) {
         setApiErrorMessage(NOT_FOUND_ERR_BLOCK);
       }
     } else {
       setVisibleMovies(visible);
+      localStorage.setItem('isShortSavedMovies', JSON.stringify({ checkbox: false }));
     }
   }, [isSwitchOn]);
+
 
   const handleCardClick = (movie) => {
     window.open(movie.trailerLink, '_blank');

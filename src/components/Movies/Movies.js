@@ -36,6 +36,12 @@ function Movies() {
 
 
   useEffect(() => {
+    if (!localStorage.getItem('isShortMovies')) {
+      localStorage.setItem('isShortMovies', JSON.stringify({ checkbox: false }));
+    }
+    if (JSON.parse(localStorage.getItem('isShortMovies')).checkbox) {
+      setTimeout(handleSwitchChange, 300)
+    }
     let found, foundChecked;
     const fromStorage = localStorage.getItem('foundMovies');
     if (fromStorage) {
@@ -61,7 +67,7 @@ function Movies() {
 
   useEffect(() => {
     if (foundMovies.length <= visualProps.total) {
-      setVisibleCardsNumber(foundMovies.length);
+      /* setVisibleCardsNumber(foundMovies.length); */
       setIsMoreVisible(false);
     }
     else if (visibleCardsNumber) {
@@ -86,11 +92,13 @@ function Movies() {
     if (isSwitchOn) {
       const foundFilter = found.filter(item => item.duration <= SHORT_FILM_DURATION);
       setFoundMovies(foundFilter);
+      localStorage.setItem('isShortMovies', JSON.stringify({ checkbox: true }));
       if (foundFilter.length === 0) {
         setFindErrorMessage(NOT_FOUND_ERR_BLOCK);
       }
     } else {
       setFoundMovies(found);
+      localStorage.setItem('isShortMovies', JSON.stringify({ checkbox: false }));
     }
   }, [isSwitchOn]);
 

@@ -13,10 +13,14 @@ import NotFound from '../NotFound/NotFound'
 import './App.css';
 
 function App() {
+  if (!localStorage.getItem('isLocalLoggedIn')) {
+    localStorage.setItem('isLocalLoggedIn', JSON.stringify({ loggedIn: false }));
+  }
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({ email: '', name: '' });
   const [resultMessage, setResultMessage] = useState('');
   let history = useHistory();
+
   const tokenCheck = () => {
     if (localStorage.getItem('jwt')) {
       const jwt = localStorage.getItem('jwt');
@@ -25,12 +29,14 @@ function App() {
           if (res) {
             setCurrentUser({ name: res.name, email: res.email });
             setLoggedIn(true);
-            history.push('/movies');
+            localStorage.setItem('isLocalLoggedIn', JSON.stringify({ loggedIn: true }));
+            /* history.push('/movies'); */
           }
         })
         .catch(err => {
           console.log('Переданный токен некорректен.');
           setLoggedIn(false);
+          localStorage.setItem('isLocalLoggedIn', JSON.stringify({ loggedIn: false }));
         });
     }
   };
@@ -53,6 +59,7 @@ function App() {
           resetLoginForm();
           history.push('/movies');
           setLoggedIn(true);
+          localStorage.setItem('isLocalLoggedIn', JSON.stringify({ loggedIn: true }));
         }
       })
       .catch(err => {
@@ -78,6 +85,9 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem('foundMovies');
     localStorage.removeItem('jwt');
+    localStorage.removeItem('isShortMovies');
+    localStorage.removeItem('isShortSavedMovies');
+    localStorage.removeItem('isLocalLoggedIn');
     setLoggedIn(false);
     setCurrentUser({ name: '', email: '' });
     history.push('/');
@@ -99,11 +109,13 @@ function App() {
               localStorage.setItem('jwt', data.token);
               history.push('/movies');
               setLoggedIn(true);
+              localStorage.setItem('isLocalLoggedIn', JSON.stringify({ loggedIn: true }));
             }
           })
           .catch((err) => {
             console.log('Переданный токен некорректен.');
             setLoggedIn(false);
+            localStorage.setItem('isLocalLoggedIn', JSON.stringify({ loggedIn: false }));
           });
         //------------------------------------------------------
       })
@@ -135,15 +147,15 @@ function App() {
             <Main />
           </Route>
           <ProtectedRoute path="/movies"
-            loggedIn={loggedIn}
+            loggedIn={JSON.parse(localStorage.getItem('isLocalLoggedIn')).loggedIn}
             component={Movies}
           />
           <ProtectedRoute path="/saved-movies"
-            loggedIn={loggedIn}
+            loggedIn={JSON.parse(localStorage.getItem('isLocalLoggedIn')).loggedIn}
             component={SavedMovies}
           />
           <ProtectedRoute path="/profile"
-            loggedIn={loggedIn}
+            loggedIn={JSON.parse(localStorage.getItem('isLocalLoggedIn')).loggedIn}
             component={Profile}
             onLogout={handleLogout}
           />
