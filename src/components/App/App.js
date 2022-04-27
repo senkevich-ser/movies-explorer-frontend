@@ -10,7 +10,9 @@ import Profile from '../Profile/Profile';
 import Register from '../pages/Register';
 import Login from '../pages/Login/Login';
 import NotFound from '../NotFound/NotFound'
+import { readMovies } from '../../utils/MoviesSearch';
 import './App.css';
+import { Redirect } from 'react-router-dom';
 
 function App() {
   if (!localStorage.getItem('isLocalLoggedIn')) {
@@ -41,7 +43,11 @@ function App() {
     }
   };
 
+
   useEffect(() => {
+    readMovies().then((movies) => {
+      localStorage.setItem('allMovies', JSON.stringify(movies));
+    })
     tokenCheck();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loggedIn]);
@@ -88,6 +94,8 @@ function App() {
     localStorage.removeItem('isShortMovies');
     localStorage.removeItem('isShortSavedMovies');
     localStorage.removeItem('isLocalLoggedIn');
+    localStorage.removeItem('allMovies');
+    localStorage.removeItem('searchString');
     setLoggedIn(false);
     setCurrentUser({ name: '', email: '' });
     history.push('/');
@@ -138,6 +146,8 @@ function App() {
 
   const resetResultMessage = () => {
     setResultMessage('');
+
+
   };
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -160,20 +170,20 @@ function App() {
             onLogout={handleLogout}
           />
           <Route path="/signup">
-            <Register
+            {!loggedIn ? <Register
               onRegister={handleRegister}
               errorMessage={resultMessage}
               resetMessage={resetResultMessage}
               history={history}
-            />
+            /> : <Redirect to='/' />}
           </Route>
           <Route path="/signin">
-            <Login
+            {!loggedIn ? <Login
               onLogin={handleLogin}
               errorMessage={resultMessage}
               resetMessage={resetResultMessage}
               history={history}
-            />
+            /> : <Redirect to='/' />}
           </Route>
           <Route path="*">
             <NotFound history={history} />

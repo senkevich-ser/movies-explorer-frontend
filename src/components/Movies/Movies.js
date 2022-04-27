@@ -11,7 +11,7 @@ import './Movies.css';
 import {
   NOT_FOUND_ERR_BLOCK, SAVE_FILM_ERR_TEXT, SHORT_FILM_DURATION
 } from '../../utils/Const';
-import { readMovies, filterMovies, addSavedFlag } from '../../utils/MoviesSearch';
+import { filterMovies, addSavedFlag } from '../../utils/MoviesSearch';
 import mainApi from '../../utils/MainApi';
 
 function Movies() {
@@ -43,13 +43,13 @@ function Movies() {
       setTimeout(handleSwitchChange, 300)
     }
     let found, foundChecked;
+
     const fromStorage = localStorage.getItem('foundMovies');
     if (fromStorage) {
       found = JSON.parse(fromStorage);
       setFoundMovies(found);
       setIsSwitchDisabled(found.length === 0);
     }
-
     mainApi.getMovies()
       .then((data) => {
         setSavedMovies(data);
@@ -89,6 +89,7 @@ function Movies() {
     if (!fromStorage) return;
     const found = JSON.parse(fromStorage);
 
+
     if (isSwitchOn) {
       const foundFilter = found.filter(item => item.duration <= SHORT_FILM_DURATION);
       setFoundMovies(foundFilter);
@@ -99,6 +100,7 @@ function Movies() {
     } else {
       setFoundMovies(found);
       localStorage.setItem('isShortMovies', JSON.stringify({ checkbox: false }));
+      searchMain(JSON.parse(localStorage.getItem('searchString')));
     }
   }, [isSwitchOn]);
 
@@ -111,15 +113,15 @@ function Movies() {
     setFindErrorMessage('');
     setIsSwitchOn(false);
     setIsSwitchDisabled(true);
+    localStorage.setItem('isShortMovies', JSON.stringify({ checkbox: false }));
     if (localStorage.getItem('foundMovies')) localStorage.removeItem('foundMovies');
     if (localStorage.getItem('searchString')) localStorage.removeItem('searchString');
 
     try {
       setIsLoading(true);
 
-      // Читаем фильмы с сервиса beatfilm-movies
-      const movies = await readMovies();
-
+      // Читаем фильмы с сервиса beatfilm-movies из localStorage
+      const movies = JSON.parse(localStorage.getItem('allMovies'))
       // Выполняем поиск
       const found = await filterMovies(searchString.toLowerCase(), movies);
 
@@ -149,6 +151,7 @@ function Movies() {
     let length = foundMovies.length;
 
     if (newValue >= length) {
+      console.log(newValue >= length)
       newValue = length;
       setIsMoreVisible(false);
     }
@@ -160,7 +163,7 @@ function Movies() {
       // Находим сохраняемый/удаляем фильм
       const films = foundMovies.filter(currentMovie => currentMovie.movieId === movieId);
       if (films.length !== 1) throw new Error(SAVE_FILM_ERR_TEXT);
-
+      console.log(films)
       let newFoundMovies = [];
 
       if (films[0].saved === 0) {

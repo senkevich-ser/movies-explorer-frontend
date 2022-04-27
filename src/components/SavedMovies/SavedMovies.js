@@ -80,7 +80,7 @@ function SavedMovies() {
 
         const newVisible = visibleMovies.filter(item => item._id !== deletedMovie._id);
         setVisibleMovies(newVisible);
-        localStorage.setItem(JSON.stringify(newVisible), STORAGE_NAME);
+        localStorage.setItem(STORAGE_NAME, JSON.stringify(newVisible));
 
         if (newVisible.length === 0) setApiErrorMessage(NOT_FOUND_ERR_BLOCK);
         setIsSwitchDisabled(newList.length === 0);
