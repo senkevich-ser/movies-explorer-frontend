@@ -9,8 +9,7 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import Register from '../pages/Register';
 import Login from '../pages/Login/Login';
-import NotFound from '../NotFound/NotFound'
-import { readMovies } from '../../utils/MoviesSearch';
+import NotFound from '../NotFound/NotFound';
 import './App.css';
 import { Redirect } from 'react-router-dom';
 
@@ -57,11 +56,6 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    readMovies().then((movies) => {
-      localStorage.setItem('allMovies', JSON.stringify(movies));
-    })
-  }, []);
 
   useEffect(() => {
     tokenCheck();

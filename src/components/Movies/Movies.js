@@ -11,7 +11,7 @@ import './Movies.css';
 import {
   NOT_FOUND_ERR_BLOCK, SAVE_FILM_ERR_TEXT, SHORT_FILM_DURATION
 } from '../../utils/Const';
-import { filterMovies, addSavedFlag } from '../../utils/MoviesSearch';
+import { readMovies, filterMovies, addSavedFlag } from '../../utils/MoviesSearch';
 import mainApi from '../../utils/MainApi';
 
 function Movies() {
@@ -33,7 +33,6 @@ function Movies() {
   const { width } = useWindowDimensions();
   const [visualProps, setVisualProps] = useState({ total: 12, add: 3 });
   const [visibleCardsNumber, setVisibleCardsNumber] = useState(0);
-  const [moreButtonCondition, setMoreButtonCondition] = useState(false);
 
 
   useEffect(() => {
@@ -51,6 +50,9 @@ function Movies() {
       setFoundMovies(found);
       setIsSwitchDisabled(found.length === 0);
     }
+    readMovies().then((movies) => {
+      localStorage.setItem('allMovies', JSON.stringify(movies));
+    })
     mainApi.getMovies()
       .then((data) => {
         setSavedMovies(data);
@@ -238,18 +240,7 @@ function Movies() {
     setIsSwitchOn(!isSwitchOn);
   };
 
-  const buttonClick = () => {
-    let newValue = visibleCardsNumber + visualProps.add;
-    let length = foundMovies.length;
 
-    if (newValue >= length) {
-      console.log(newValue >= length)
-      newValue = length;
-      setIsMoreVisible(false);
-    }
-    console.log('Кнопка Огооо')
-    setIsMoreVisible(!isMoreVisible);
-  }
   return (
     <section className="movies">
       <Header>{<Navigation />}</Header>
@@ -259,7 +250,6 @@ function Movies() {
         onSwitchChange={handleSwitchChange}
         isSwitchOn={isSwitchOn}
         isSwitchDisabled={isSwitchDisabled} />
-      <button onClick={buttonClick} type='button'>ОГООО</button>
       <MoviesCardList
         savedFilms={false}
         isLoading={isLoading}
