@@ -32,8 +32,8 @@ function App() {
             setCurrentUser({ name: res.name, email: res.email });
             setLoggedIn(true);
             localStorage.setItem('isLocalLoggedIn', JSON.stringify({ loggedIn: true }));
+
             if (history.location.pathname === '/') {
-              console.log(history)
               history.push('/');
             }
             if (history.location.pathname === '/movies') {
@@ -44,7 +44,6 @@ function App() {
               history.push('/saved-movies');
             }
             if (history.location.pathname === '/profile') {
-              console.log(history.location.pathname)
               history.push('/profile');
             }
 
