@@ -27,7 +27,7 @@ function SavedMovies() {
       localStorage.setItem('isShortSavedMovies', JSON.stringify({ checkbox: false }));
     }
     if (JSON.parse(localStorage.getItem('isShortSavedMovies')).checkbox) {
-      setTimeout(handleSwitchChange, 200)
+      setTimeout(handleSwitchChange, 300)
     }
     setIsLoading(true);
     mainApi.getMovies()

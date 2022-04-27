@@ -32,7 +32,22 @@ function App() {
             setCurrentUser({ name: res.name, email: res.email });
             setLoggedIn(true);
             localStorage.setItem('isLocalLoggedIn', JSON.stringify({ loggedIn: true }));
-            /* history.push('/movies'); */
+            if (history.location.pathname === '/') {
+              console.log(history)
+              history.push('/');
+            }
+            if (history.location.pathname === '/movies') {
+              history.push('/movies');
+            }
+            if (history.location.pathname === '/saved-movies') {
+              console.log(history.location.pathname)
+              history.push('/saved-movies');
+            }
+            if (history.location.pathname === '/profile') {
+              console.log(history.location.pathname)
+              history.push('/profile');
+            }
+
           }
         })
         .catch(err => {
@@ -43,11 +58,13 @@ function App() {
     }
   };
 
-
   useEffect(() => {
     readMovies().then((movies) => {
       localStorage.setItem('allMovies', JSON.stringify(movies));
     })
+  }, []);
+
+  useEffect(() => {
     tokenCheck();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loggedIn]);
@@ -63,9 +80,9 @@ function App() {
         if (data.token) {
           localStorage.setItem('jwt', data.token);
           resetLoginForm();
-          history.push('/movies');
           setLoggedIn(true);
           localStorage.setItem('isLocalLoggedIn', JSON.stringify({ loggedIn: true }));
+          setTimeout(() => { history.push('/movies') }, 300);
         }
       })
       .catch(err => {
@@ -115,9 +132,9 @@ function App() {
           .then((data) => {
             if (data.token) {
               localStorage.setItem('jwt', data.token);
-              history.push('/movies');
               setLoggedIn(true);
               localStorage.setItem('isLocalLoggedIn', JSON.stringify({ loggedIn: true }));
+              setTimeout(() => { history.push('/movies') }, 300);
             }
           })
           .catch((err) => {

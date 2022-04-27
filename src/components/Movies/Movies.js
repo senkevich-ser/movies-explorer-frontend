@@ -33,6 +33,7 @@ function Movies() {
   const { width } = useWindowDimensions();
   const [visualProps, setVisualProps] = useState({ total: 12, add: 3 });
   const [visibleCardsNumber, setVisibleCardsNumber] = useState(0);
+  const [moreButtonCondition, setMoreButtonCondition] = useState(false);
 
 
   useEffect(() => {
@@ -64,6 +65,14 @@ function Movies() {
   useEffect(() => {
     setVisualProps(getVisualProps(width));
   }, [width]);
+
+  useEffect(() => {
+    if (visibleCardsNumber >= foundMovies.length)
+      console.log('123')
+    setIsMoreVisible(false);
+  }, [visibleCardsNumber, foundMovies]);
+
+
 
   useEffect(() => {
     if (foundMovies.length <= visualProps.total) {
@@ -148,13 +157,14 @@ function Movies() {
   const handleMoreClick = () => {
     // Определяем количество отображаемых карточек
     let newValue = visibleCardsNumber + visualProps.add;
-    let length = foundMovies.length;
+    /* let length = foundMovies.length; */
 
-    if (newValue >= length) {
-      console.log(newValue >= length)
-      newValue = length;
-      setIsMoreVisible(false);
-    }
+    /*  if (newValue >= length) {
+       setMoreButtonCondition(true);
+       console.log(newValue >= length)
+       newValue = length;
+       setIsMoreVisible(false);
+     } */
     setVisibleCardsNumber(newValue);
   };
 
@@ -235,6 +245,19 @@ function Movies() {
   const handleSwitchChange = () => {
     setIsSwitchOn(!isSwitchOn);
   };
+
+  const buttonClick = () => {
+    let newValue = visibleCardsNumber + visualProps.add;
+    let length = foundMovies.length;
+
+    if (newValue >= length) {
+      console.log(newValue >= length)
+      newValue = length;
+      setIsMoreVisible(false);
+    }
+    console.log('Кнопка Огооо')
+    setIsMoreVisible(!isMoreVisible);
+  }
   return (
     <section className="movies">
       <Header>{<Navigation />}</Header>
@@ -244,6 +267,7 @@ function Movies() {
         onSwitchChange={handleSwitchChange}
         isSwitchOn={isSwitchOn}
         isSwitchDisabled={isSwitchDisabled} />
+      <button onClick={buttonClick} type='button'>ОГООО</button>
       <MoviesCardList
         savedFilms={false}
         isLoading={isLoading}
