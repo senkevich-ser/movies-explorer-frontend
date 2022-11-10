@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.siarhey.nomoredomains.work';
+export const BASE_URL = 'http://api.9675051202.ru';
 
 export const handleResponse = (res) => {
   if (res.ok) return res.json();
