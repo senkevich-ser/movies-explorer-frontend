@@ -13,7 +13,7 @@
 
 ## Адрес клиентской части
 
-https://siarhey.nomoredomains.xyz
+https://9675051202.ru
 
 
 ## Технологии
