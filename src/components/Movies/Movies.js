@@ -45,10 +45,13 @@ function Movies() {
     let found, foundChecked;
 
     const fromStorage = localStorage.getItem('foundMovies');
+
     if (fromStorage) {
       found = JSON.parse(fromStorage);
       setFoundMovies(found);
       setIsSwitchDisabled(found.length === 0);
+    } else{
+      found=[]
     }
     readMovies().then((movies) => {
       localStorage.setItem('allMovies', JSON.stringify(movies));
@@ -167,7 +170,6 @@ function Movies() {
       // Находим сохраняемый/удаляем фильм
       const films = foundMovies.filter(currentMovie => currentMovie.movieId === movieId);
       if (films.length !== 1) throw new Error(SAVE_FILM_ERR_TEXT);
-      console.log(films)
       let newFoundMovies = [];
 
       if (films[0].saved === 0) {
